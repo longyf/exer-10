@@ -18,19 +18,21 @@ long long Fibonacci_2(unsigned int n) {
 	else if (n==1)
 		return 1;
 	else {
-		long long array[n];
-		array[0]=0;
-		array[1]=1;
+		long long temp1=0;
+		long long temp2=1;
+		long long temp3=0;
 		for (unsigned int i=2; i!=n+1; ++i) {
-			array[i]=array[i-2]+array[i-1];
+			temp3=temp1+temp2;
+			temp1=temp2;
+			temp2=temp3;
 		}
-		return array[n];
+		return temp3;
 	}
 }
 
 int main() {
-	unsigned int n=100;
-//	cout<<Fibonacci(n)<<endl;
+	unsigned int n=10;
+	cout<<Fibonacci(n)<<endl;
 	cout<<Fibonacci_2(n)<<endl;
 	return 0;
 }
